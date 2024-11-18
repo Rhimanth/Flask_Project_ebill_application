@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+    background-color: #ddd6de;
+}
+h1{
+    color: #2a2df6;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px rgba(243,247,4,0.862);
+
+}
+table{
+    border: 1px solid #2a2df6;
+    color: #2a2d4a;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16;
+    border-collapse: collapse;
+}
+th{
+    background-color: #2a2d42;
+    color: white;
+    width: 300;
+    height: 50;
+    border: 1px solid #2a2df6;
+}
+td{
+    border: 1px solid #2a2df6;
+}
+#print{
+    width: 10%;
+    height: 5%;
+    background-color: red;
+    color: rgb(255, 253, 253);
+    text-align: center;
+}

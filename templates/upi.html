@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generation</title>
+    <style>
+        body{
+    background-color: #ddd6de;
+}
+.navBar{
+    background-color: #2a2d46;
+    color: white;
+    text-align: center;
+    float: left;
+    width: 25%;
+    height: 5%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(13,13,13,0.1);
+}
+#Ebill,#ebill{
+    background-color: #ddd6de;
+    color: #2a2d46;
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 10%;
+    border-radius: 0px;
+}
+
+#logout{
+    width: 5%;
+    padding: 10px;
+    background-color: rgb(238,38,7);
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    position: fixed;
+    right: 200;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+img{
+    height: 40%;
+    width: 20%;
+}
+#payment{
+    height: 100%;
+    width: 20%;
+    background-color: aquamarine;
+    color: #2a2d46;
+    border:1px solid #2a2d46;
+    border-radius: 10%;
+}
+
+    </style>
+</head>
+<body onload="viewname()">
+    <center>
+        <div id="Ebill">
+            <h1><b>Ebill Application</b></h1>
+        </div>
+        <div id="ebill">
+            <p>Welcome  <span id="cust_name">{{name}}</span></p>
+            <form action="{{url_for('login')}}">
+                <button type="submit" value="logout" id="logout">Logout</button>
+            </form>
+        </div>
+        <nav>
+            <p>.</p>
+            <div class="navBar" >
+                <a href="{{url_for('home')}}" >Home</a>
+            </div>
+            <div class="navBar" id="view">
+                <a href="{{url_for('viewbills')}}">Pay Bill</a>
+            </div>
+            <div class="navBar">
+                <a href="{{url_for('complaint')}}">Raise Complient</a>
+            </div>
+            <div class="navBar">
+                <a href="{{url_for('ComplaintStatus')}}">Complient Status</a>
+            </div>
+        </nav>
+        <br>
+        <p>.</p>
+
+        <!-- QR code generation content -->
+        <div id="upi_gateway">
+            <h2>UPI Payment Gateway</h2>
+            <form id="upi_payment_form" action="{{url_for('PaymentSuccess')}}">
+                <label for="upi_id">UPI ID:</label>
+                <input type="text" id="upi_id" name="upi_id" placeholder="Enter your UPI ID" required><br><br>
+                <div>
+                    <h2>Total Amount</h2>
+                    <h1>&#x20B9<span id="amount">{{amount}}</span></h1>
+                </div>
+                <button type="submit" id="payment">Pay Now</button>
+            </form>
+        </div>
+        <br>
+        <br>
+    </center>
+
+    
+</body>
+</html>

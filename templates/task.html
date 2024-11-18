@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+            body{
+            background-color:rgba(226, 166, 222, 0.226);
+
+            }
+            .boxes{
+                background-color: rgb(232, 219, 248);
+                float: left;
+                margin: 5%;
+                width:20%;
+                height:40%;
+                border-radius: 10%;
+            }
+            h1{
+                color: red;
+            }
+            h1,h2{
+                text-align:center;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: bold;
+            }
+            h3{
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: bold;
+                color: rgb(247, 71, 153)
+            }
+            img{
+                
+                width: 50%;
+                height: 40%;
+                float:center;
+            }
+            .house{
+                width: 40%;
+                height: 30%;
+                position: absolute;
+                right: 10px;
+                bottom: 10px; 
+            }
+        </style>
+        
+
+    </head>
+    <body>
+        <marquee><h3>Welcome to Admin....................Welcome to Admin....................Welcome to Admin....................Welcome to Admin....................</h3></marquee>
+        <br>
+
+        <div class="boxes">
+            <img src="{{url_for('static',filename='value.png')}}" alt="img">
+            <h2>customers <span></span></h2>
+            <h1><span>{{c}}</span></h1>
+        </div>
+        <div class="boxes">
+            <img src="{{url_for('static',filename='bill.png')}}" alt="img">
+            <h2>Bills <span></span></h2>
+            <h1><span>{{bill}}</span></h1>
+        </div>
+        <div class="boxes">
+            <img src="{{url_for('static',filename='complaint.png')}}" alt="img">
+            <h2>compliants <span></span></h2>
+            <h1><span>{{comp}}</span></h1>
+        </div>
+    
+        <img src="{{url_for('static',filename='house.png')}}" class="house">
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #2a2d4f;
+}
+.login_box{
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ddd6de;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0.1);
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50;
+    text-align: center;
+    font-weight: bold;
+    color: #ecdcea;
+}
+h2{
+    text-align: center;
+    color: #461111;
+
+}
+.form_group{
+    margin-bottom: 20px;
+}
+label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input[type="text"],input[type="password"]{
+    
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button{
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(18,220,126);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+sup{
+    color: red;
+}
+a{
+    text-decoration: none;
+}

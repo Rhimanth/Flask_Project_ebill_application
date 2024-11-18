@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Receipt</title>
+        <link rel="Stylesheet" type="text/css" href="{{url_for('static',filename='receipt.css')}}">
+        
+    </head>
+    <body >
+        <center>
+            <h1>Ebill Application</h1>
+            <br>
+            <table id="receipt">
+                <tr>
+                    <th>Online payment Transaction Details</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Transaction Number</td>
+                    <td>EBA<span id="t_no">{{b[0]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Receipt Number</td>
+                    <td><span id="r_no">{{b[1]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Transaction Date</td>
+                    <td><span id="t_date">{{b[2]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Transaction Type</td>
+                    <td><span id="card">{{b[3]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Payment Type</td>
+                    <td>Registered User</td>
+                </tr>
+                <tr>
+                    <td>Payment Gateway</td>
+                    <td><span id="gateway">Online/Card Payment</span></td>
+                </tr>
+                <tr>
+                    <td>Consumer Name</td>
+                    <td><span id="c_name">{{b[6]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Bill Number</td>
+                    <td><span id="b_no">{{b[7]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Transaction Amount</td>
+                    <td>&#x20B9<span id="t_amt">{{b[8]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>Payment Successful</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <button type="submit" id="print" value="print" onclick="window.print();" >Print</button>
+            <br>
+            <br>
+            <a id="back to home" href="{{url_for('home')}}">Back to Home</a>
+        </center>
+
+    </body>
+</html>

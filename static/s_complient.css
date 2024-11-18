@@ -1,0 +1,86 @@
+body{
+    background-color: #ddd6de;
+}
+#view1{
+    background-color: rgb(227, 136, 250);
+    color:black;
+  }
+.navBar{
+    background-color: #2a2d46;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    width: 25%;
+    height: 5%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(13,13,13,0.1);
+}
+#Ebill,#ebill{
+    background-color: #ddd6de;
+    color: #2a2d46;
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 10%;
+    border-radius: 0px;
+  
+}
+
+#logout{
+    width: 5%;
+    padding: 10px;
+    background-color: rgb(238,38,7);
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    position: fixed;
+    right: 200;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+.main_box{
+    float: left;
+    width: 40%;
+    height: 50%;
+    text-align: left;
+    margin-right: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #baa0be;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(13,13,13,0.1);
+}
+#get_status{
+    width: 20%;
+    padding: 10px;
+    background-color: rgb(85,230,13);
+    color: #090909;
+    border: none;
+    cursor: pointer;
+}
+#complient_no{
+    width: 20%;
+    text-align: center;
+}
+input[type="text"],textarea,select{
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#cust_name{
+    color: blue;
+    font-size: 20;
+    text-align: right;
+}
+
+#view{
+    background-color: rgb(227, 136, 250);
+    color: black;
+  }

@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=""X-UA-Compatible" content="IE=edge">
+        <title>Registration Page</title>
+        <link rel="Stylesheet"  type="text/css" href="{{url_for('static',filename='registration.css')}}">
+        <script type="text/javascript" src="{{url_for('static',filename='registration.js')}}"></script>
+    </head>
+    <body>
+        <br>
+        <h2><b>New User Registration</b></h2>
+        <form id="reg_form" action="{{url_for('acknowledgment')}}" onsubmit="return Passwordmatching();" method="POST">
+            <div class="registration_container">
+                <div class="details" ><center><b>Consumer Details</b></center></div>
+                <div class="form_group">
+                    <br>
+                    <br>
+                    <label for="consumer_id">Consumer Id <sup>*</sup></label>
+                    <input type="text" id="consumer_id" name="consumer_id" pattern="[0-9]{13}" maxlength="13" required>
+                </div>
+                <div class="form_group">
+                    <label for="bill_no">Bill No <sup>*</sup></label>
+                    <input type="text" id="bill_no" name="bill_no" pattern="[0-9]{5}" maxlength="5"  required>
+                </div>
+        <pre>
+            <ul>
+                <li>Consumer Id Mustbe Number and minimum length is 13 digits </li>
+                <li>Bill No Mustbe Number and minimum length is 5 digits</li>
+            </ul>
+         </pre>
+            </div>
+            <div class="registration_container">
+                <div class="details" ><center><b>Customer Details</b></center></div>
+                <div class="form_group">
+                    <label for="title">Title</label>
+                    <select name="title">
+                        <option>Mr</option>
+                        <option>Mrs</option>
+                        <option>Miss</option>
+                    </select>
+                    <label for="name">Name <sup>*</sup></label>
+                    <input type="text" id="name" name="name" maxlength="50" required>
+                </div>
+                <div class="form_group">
+                    <label for="mobile_no">Country code <sup>*</sup></label>
+                    <select>
+                        <option>+91(IND)</option>
+                        <option>+10(USA)</option>
+                        <option>+54(CAN)</option>
+                    </select>
+                    <label for="mobile_no">Mobile No <sup>*</sup></label>
+                    <input type="text" id="mobile_no" name="mobile_no"  pattern="[6-9][3-9]\d{8}"  maxlength="10" required>
+                </div>
+                <div class="form_group">
+                    <label for="emailid">Email Id <sup>*</sup></label>
+                    <input type="email" id="emailid" name="emailid" pattern="[a-zA-Z0-9.]+@[a-zA-Z]+\.com" required>
+                </div>
+            </div>
+            <div class="registration_container">
+                <div class="details" ><center><b>User Details</b></center></div>
+                <div class="form_group">
+                    <br>
+                    <br>
+                    <label for="username">User Name <sup>*</sup></label>
+                    <input type="text" id="username" name="username" minlength="5" required>
+                </div>
+                <div class="form_group">
+                    <label for="password">Password <sup>*</sup></label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form_group">
+                    <label for="c_password">Confirm Password <sup>*</sup></label>
+                    <input type="password" id="c_password" name="c_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" required>
+                    <input type="checkbox" id="showPassword"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"onclick="showpassword();">show password
+       <pre><b>Password Guide</b></pre>
+       
+        <pre>
+        1.Must be at least 8 characters long.
+        2.Must contain at least one UPPERCASE alpha character.
+        3.Must contain at least one lower case alpha character.
+        4.Must contain at least one numerical character.
+        5.Must contain at least one special character.
+        </pre>
+                </div>
+            </div>
+            <p>.</p>
+    
+            <div>
+                <center>
+                  
+                    <button type="submit" value="submit" onclick="passvalues();">Submit</button>
+                    <br>
+                    <br>
+                    <button type="reset" value="reset">Reset</button>
+                    <br>
+                    <br>
+                </center>
+            </div>
+        </form>
+        <form action="{{url_for('login')}}">
+        <button type="submit" value="Backtologin" id="back">Back To Login</button>
+        </form>
+        {% if consumerid_exists %}
+        <script>
+            alert("consumer id already exists")
+            </script>
+            {% endif %}
+            {% if billno_exists %}
+            <script>
+                alert("billno already exists")
+                </script>
+                {% endif %}
+                {% if username_exists %}
+                <script>
+                    alert("username already exists")
+                    </script>
+                    {% endif %}
+                    {% if customer_exists %}
+                <script>
+                    alert("No valid connection found with the given consumer id ")
+                    </script>
+                    {% endif %}
+    </body>
+</html>

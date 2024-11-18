@@ -1,0 +1,78 @@
+<html>
+<head>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: fixed;
+            top: 20%;
+            left: 30%;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #0bdea5;
+        }
+        body{
+            background-color: #f5eff6
+        }
+        .container{
+            float: center;
+            border: 1px solid#2a2d46;
+            background-color: #ddd6de;
+        }
+        h1{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #2a2d46;
+            text-align: center;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>UPDATE DETAILS</h1>
+<div class="container">
+    <form action="{{url_for('dupdatedetailscheck')}}" method="POST">
+        <br>
+        <br>
+        <input type="text" id="consumer_id" pattern="[0-9]{13}"  maxlength=13 name="consumer_id" placeholder="Consumer ID" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="submit" value="Update">
+    </form>
+</div>
+{% if error %}
+<script>
+    alert("Unable to process the request right now....{{reason}}")
+</script>
+{% endif %}
+{% if success %}
+<script>
+    alert("Details updated Successfully")
+</script>
+{% endif %}
+{% if customer %}
+<script>
+    alert("Customer not found by the id {{b}}")
+</script>
+{% endif %}
+</body>
+</html>

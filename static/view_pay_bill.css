@@ -1,0 +1,91 @@
+body{
+    background-color: #ddd6de;
+}
+.navBar{
+    background-color: #2a2d46;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    width: 25%;
+    height: 5%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(13,13,13,0.1);
+}
+#Ebill,#ebill{
+    background-color: #ddd6de;
+    color: #2a2d46;
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 10%;
+    border-radius: 0px;
+}
+#view_bill{
+    background-color: #e9e4ea;
+    color: #2a2d46;
+    text-align: center;
+    float: center;
+    width: 50%;
+    height: 60%;
+
+}
+#logout{
+    width: 5%;
+    padding: 10px;
+    background-color: rgb(238,38,7);
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    position: fixed;
+    right: 200;
+}
+#proceedToPay{
+    width: 20%;
+    padding: 10px;
+    background-color: rgb(149,217,240);
+    color: #2a2d46;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+#cust_name{
+    color: blue;
+    font-size: 20;
+    text-align: right;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  #totalAmount {
+    margin-top: 20px;
+  }
+  table{
+    margin: 0 auto;
+  }
+  button{
+
+    background-color: #2a2d46;
+    color: white;
+  }
+  #totalAmount{
+    color: brown;
+    font-weight: bold;
+    font-size: 20;
+  }
+  #view{
+    background-color: rgb(227, 136, 250);
+    color: black;
+  }

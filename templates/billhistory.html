@@ -1,0 +1,96 @@
+billhistory.html
+<html>
+    <head>
+        <title>
+            Bill History
+        </title>
+        <style>
+            h1 {
+                text-align: center;
+                color: #2a2d46;
+                font-size: 40px;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: bold;
+            }
+            table {
+                margin: 0 auto; 
+                border-collapse: collapse; 
+
+            }
+            th {
+                color: aliceblue;
+                background-color: #2a2d46;
+                font-size: 20px;
+                font-weight: bold;
+                height: 10%;
+                width: 10%;
+            }
+            td {
+                color: #2a2d46;
+                font-size: 20px;
+                height: 10%; 
+                width: 10%; 
+                text-align: center;
+            }
+            span{
+                color: green;
+            }
+            h3{
+                text-align: left;
+                color: #333968;
+                font-size: 30px;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: bold;
+            }
+            a{
+                color:red;
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration: none;
+                text-align: center;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>
+            Ebill Application 
+        </h1>
+        <h3 id="name">Customer Name : <span id="sname">{{name}}</span></h3>
+        <h3 id="cid">Consumer Id : <span id="scid">{{cid}}</span></h3>
+        <div>
+        <center>
+        {% if b %}
+        <table border="1">
+            <tr>
+                <th>Transaction No</th>
+                <th>Receipt No</th>
+                <th>Bills</th>
+                <th>Transaction Date</th>
+                <th>Transaction Amount</th>
+                <th>Payment type</th>
+                <th>status</th>
+
+            </tr>
+            {% for i in b %}
+            <tr>
+                <td>EBA{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[7]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[8]}}</td>
+                <td>{{i[3]}}</td>
+                <td>Successful</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div>
+            <h1>No Transactions Found</h1>
+        </div>
+        {% endif %}
+        </center>
+    </div>
+    <a href="{{url_for('home')}}"><p>Back To Home</p></a>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+    <style>
+        body{
+            background-color: #f5eff6
+        }
+        .container{
+            border: 1px solid#2a2d46;
+            background-color: #ddd6de;
+            height: 78%;
+        }
+        table{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            padding-left: 10%;
+            padding-right: 10%;
+            
+
+        }
+        th{
+            background-color: #2a2d46;
+            color: white;
+        }
+        th,td{
+            height: 30%;
+            width: 5%;
+        }
+        h1{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #5bf005;
+            text-align: center;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CUSTOMERS DETAILS</h1>
+    {% if customers %}
+    <table>
+        <tr>
+            <th>Consumer ID</th>
+            <th>Customer Name</th>
+            <th>Mobile Number</th>
+            <th>Email ID</th>
+            <th>Unpaid Bills</th>
+            <th>Active Complaints</th>
+        </tr>
+        {% for i in customer %}
+        <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[5]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h1>No Customers Found</h1>
+    {% endif %}
+
+</body>
+</html>

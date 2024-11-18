@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            Home
+        </title>
+        <link rel="Stylesheet" type="text/css" href="{{url_for('static',filename='view_pay_bill.css')}}">
+        <script>  
+           window.onload = function() {
+        var h = document.getElementById('home');
+        h.addEventListener('click', function() {
+            window.location.href = "{{ url_for('home') }}";
+        });
+
+        var v = document.getElementById('view');
+        v.addEventListener('click', function() {
+            window.location.href = "{{ url_for('viewbills') }}";
+        });
+
+        var c = document.getElementById('complaint');
+        c.addEventListener('click', function() {
+            window.location.href = "{{ url_for('complaint') }}";
+        });
+
+        var cs = document.getElementById('cstatus');
+        cs.addEventListener('click', function() {
+            window.location.href = "{{ url_for('ComplaintStatus') }}";
+        });
+    }
+        function updatetotal(){
+            var checkboxes=document.querySelectorAll('.check');
+            var total=0;
+            var st=[];
+            checkboxes.forEach(function(checkbox){
+                if(checkbox.checked){
+                    
+                    var amount=checkbox.closest('tr').querySelector('.payableAmount').innerText;
+                    var bill=checkbox.closest('tr').querySelector('.bill').innerText;
+                    var cleanedAmounttext=amount.replace(/[^\d.-]/g,'');
+                    var payableAmount=parseFloat(cleanedAmounttext);
+                    
+                    if(!isNaN(payableAmount)){
+                        total+=payableAmount
+                        
+                        st.push(bill);
+                    }
+                    
+                    
+                }
+            });
+          
+           document.getElementById('totalAmount').innerText=parseInt(total);
+            document.getElementById('total').value=parseInt(total);
+            document.getElementById('bills').value=st;
+
+        }
+        
+        
+        </script>
+    </head>
+    <body>
+        <center>
+            <div id="Ebill">
+                <h1><b>Ebill Application</b></h1>
+            </div>
+            <div id="ebill">
+                <p>Welcome  <span id="cust_name">{{name}}</span></p>
+                <form action="{{url_for('login')}}">
+                    <button type="submit" value="logout" id="logout">Logout</button>
+                </form>
+            </div>
+            <nav>
+                <p>.</p>
+                <div class="navBar" id="home" >
+                    <a href="{{url_for('home')}}" >Home</a>
+                </div>
+                <div class="navBar" id="view">
+                    <a href="{{url_for('viewbills')}}">Pay Bill</a>
+                </div>
+                <div class="navBar" id="complaint">
+                    <a href="{{url_for('complaint')}}">Raise Complient</a>
+                </div>
+                <div class="navBar" id="cstatus"> 
+                    <a href="{{url_for('ComplaintStatus')}}">Complient Status</a>
+                </div>
+            </nav>
+            <br>
+            <h2 align="center"><b>View Bills</b></h2>
+            <br>
+            <br>
+            <div id="view_bill">
+                <br>
+                <div id="tableContainer">
+                    <!----- bill items will be displayed here---->
+                    <table>
+                    <tr>
+                        <th>Select</th>
+                        <th>Bill No</th>
+                        <th>Due Amount</th>
+                        <th>Payable Amount</th>
+                    </tr>
+                    {% for i in b %}
+                    <tr>
+                        <td><input type="checkbox" class="check" onclick="updatetotal()"></td>
+                        <td class="bill">{{i[0]}}</td>
+                        <td>&#x20B9 {{i[1]}}</td>
+                        <td class="payableAmount">&#x20B9 {{i[2]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                </div>
+                <br>
+                <form action="{{url_for('bill')}}" method="POST">
+                <div id="TotalAmount">
+                    Total Amount: &#x20B9<input type="hidden" id="total" name="total",value="0"><span id="totalAmount" name="totalAmount" ></span>
+                    <input type="hidden" id="bills" name="bills",value="0">
+                </div>
+                <br>
+                
+                <button type="submit" value="pay"  >Proceed to Pay</button>
+                </form>
+            </div>
+        </center>
+        
+    </body>
+</html>

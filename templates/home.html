@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=""X-UA-Compatible" content="IE=edge">
+        <title>
+            Home
+        </title>
+        <link rel="Stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
+        <script>
+            window.onload = function() {
+        var h = document.getElementById('view');
+        h.addEventListener('click', function() {
+            window.location.href = "{{ url_for('home') }}";
+        });
+
+        var v = document.getElementById('bill');
+        v.addEventListener('click', function() {
+            window.location.href = "{{ url_for('viewbills') }}";
+        });
+
+        var c = document.getElementById('complaint');
+        c.addEventListener('click', function() {
+            window.location.href = "{{ url_for('complaint') }}";
+        });
+
+        var cs = document.getElementById('cstatus');
+        cs.addEventListener('click', function() {
+            window.location.href = "{{ url_for('ComplaintStatus') }}";
+        });
+    }
+        </script>
+    </head>
+    <body>
+        <center>
+            <div id="Ebill">
+                <h1><b>Ebill Application</b></h1>
+            </div>
+            <div id="ebill">
+                <p>Welcome  <span id="cust_name">{{name}}</span></p>
+                <form action="{{url_for('login')}}">
+                    <button type="submit" value="logout" id="logout">Logout</button>
+                </form>
+            </div>
+            <nav>
+                <p>.</p>
+                <div class="navBar" id="view">
+                    <a href="{{url_for('home')}}" id="view">Home</a>
+                </div>
+                <div class="navBar " id="bill">
+                    <a href="{{url_for('viewbills')}}">Pay Bill</a>
+                </div>
+                <div class="navBar" id="complaint">
+                    <a href="{{url_for('complaint')}}">Raise Complient</a>
+                </div>
+                <div class="navBar" id="cstatus">
+                    <a href="{{url_for('ComplaintStatus')}}">Complient Status</a>
+                </div>
+            </nav>
+            <img id="img1" src="{{url_for('static',filename='energy.png')}}">
+            <div id="tips">
+                <p>
+                    Welcome to <b>Ebill Application</b>, your smart solution for managing and understanding your electricity bills!easily track your usage, view detailed statements, and make paymentswith just afew taps.ouruserfriendly platform offers a seamless and secure way to manage your electriccity expences, ensuring that you stay informed and in control.
+                    Start saving time and energy with Ebill Application today your smart choice for a brighter, more sustainable future.
+                    Join us in the shift towards convenient,eco-friendly living.
+                    </p>
+                    <p><b>
+                        Get Started Now!
+                    </b>
+                </p>
+            </div>
+            <form action="{{url_for('billhistory')}}">
+            <button class="star-button" value="Billhistory" >Bill History</button></form>
+            <img id="img2" src="{{url_for('static',filename='green-power.png')}}">
+            <div id="scrolling">
+                <marquee>
+                <span><h1>* * * For your better tomorrow, save energy today * * *</h1></span></marquee>
+            </div>
+        </center>
+    </body>
+</html>

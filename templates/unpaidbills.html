@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>Display Unpaid Bill</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #0bdea5;
+        }
+        body{
+            background-color: #f5eff6
+            
+        }
+        
+        .container{
+            border: 1px solid#2a2d46;
+            background-color: #ddd6de;
+        }
+        h1{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #2a2d46;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .table{
+            float: center;
+            align-items: center;
+            padding-top: 30px;
+        }
+        table{
+            border: 1px solid black;
+            
+            text-align: center;
+
+        }
+        th,td{
+            height: 30px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1>UNPAID BILLS</h1>
+<center>
+<div class="container">
+    <form action="{{url_for('unpaidbillcheck')}}" method="post">
+        <input type="text" id="consumer_id" pattern="[0-9]{13}"  maxlength=13 name="consumer_id" placeholder="Consumer ID" required>
+        <input type="submit" value="Display" onclick="show_success();">
+    </form>
+</div>
+<center>
+    {% if error %}
+    <script>
+        alert("Unable to process the request right now....{{reason}}")
+    </script>
+    {% endif %}
+    {% if success %}
+    <div class="table">
+    <table border="1">
+        <tr>
+            <th>Bill No</th>
+            <th>Month</th>
+            <th>Due Amount</th>
+            <th>Payable Amount</th>
+        </tr>
+        {% for i in range(length) %}
+        <tr>
+            <td>{{result[i][1]}}</td>
+            <td>{{result[i][2]}}</td>
+            <td>{{result[i][3]}}</td>
+            <td>{{result[i][4]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+    {% if cid %}
+    <script>
+        alert("No unpaid bills found by this id ..{{cid}}")
+    </script>
+    {% endif %}
+    {% if customer %}
+<script>
+    alert("Customer not found by the id {{b}}")
+</script>
+{% endif %}
+</body>
+</html>

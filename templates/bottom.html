@@ -1,0 +1,129 @@
+<html>
+    <head>
+
+    </head>
+    <frameset cols="20%,80%" frameborder="0">
+        <frame src="{{url_for('adm')}}"></frame>
+        <frame src="{{url_for('adt')}}" noresize="noresize" name="task"></frame>
+    </frameset>"
+</html>
+
+<!-- cards.html -->
+
+cards.html
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            Pay using Cards
+        </title>
+        <link rel="Stylesheet" href="{{url_for('static',filename='cards.css')}}">
+        <script type="text/javascript">
+            function viewname(){
+                var a=localStorage.getItem("name");
+                var b=document.getElementById("cust_name");
+                b.textContent=a;
+                
+
+                document.getElementById("Amount").textContent=localStorage.getItem("bill_amount");
+            }
+        </script>
+    </head>
+    <body onload="viewname()">
+        <center>
+            <div id="Ebill">
+                <h1><b>Ebill Application</b></h1>
+            </div>
+            <div id="ebill">
+                <p>Welcome  <span id="cust_name">{{name}}</span></p>
+                <form action="{{url_for('login')}}">
+                    <button type="submit" value="logout" id="logout">Logout</button>
+                </form>
+            </div>
+            <nav>
+                <p>.</p>
+                <div class="navBar" >
+                    <a href="{{url_for('home')}}" >Home</a>
+                </div>
+                <div class="navBar" id="view">
+                    <a href="{{url_for('viewbills')}}">Pay Bill</a>
+                </div>
+                <div class="navBar">
+                    <a href="{{url_for('complaint')}}">Raise Complient</a>
+                </div>
+                <div class="navBar">
+                    <a href="{{url_for('ComplaintStatus')}}">Complient Status</a>
+                </div>
+            </nav>
+            <br>
+            <p>.</p>
+            <br>
+        <div class="card">
+            <div class="firstrow">
+                <div class="cardno">
+                    <br>
+                    <label id="cno">Card Number<sup>*</sup></label>
+                    <input type="text" maxlength="16" placeholder="# # # #   # # # #   # # # #   # # # #" required>
+                </div>
+            </div>
+            <div class="secondrow">
+                <div class="validity">
+                    <label id="month">Month</label>
+                    <select>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+                </div>
+                <div class="validity">
+                    <label id="year">Year</label>
+                    <select>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                        <option>2031</option>
+                        <option>2032</option>
+                        <option>2033</option>
+                        <option>2034</option>
+                        <option>2035</option>
+                    </select>
+                </div>
+                <div class="validity">
+                    <label id="cvv">CVV<sup>*</sup></label>
+                    <input type="password" maxlength="3" required>
+                </div>
+            </div>
+            <div class="thirdrow">
+                <div id="hname">
+                    <br>
+                <label id="name">Card Holder Name<sup>*</sup></label>
+                <input type="text" placeholder="Enter Your Name Here" required>
+                </div>
+                
+            </div>
+        </div>
+        </center>
+        <div class="amount">
+            <h2>Total Amount</h2>
+            <h1 >&#x20B9 {{amount}}</h1>
+
+        </div>
+        <div id="pay_button">
+            <h2><a href="{{url_for('PaymentSuccess')}}">Make Payment</a></h2>
+        </div>
+    </body>
+</html>

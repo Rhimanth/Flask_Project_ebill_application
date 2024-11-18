@@ -1,0 +1,151 @@
+body{
+    background-color: #ddd6de;
+}
+.navBar{
+    background-color: #2a2d46;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    width: 25%;
+    height: 5%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(13,13,13,0.1);
+}
+#Ebill,#ebill{
+    background-color: #ddd6de;
+    color: #2a2d46;
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 10%;
+    border-radius: 0px;
+}
+
+#logout{
+    width: 5%;
+    padding: 10px;
+    background-color: rgb(238,38,7);
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    position: fixed;
+    right: 200;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+input[type="text"]{
+    width: 70%;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 10%;
+}
+.card{
+    background-color: #dfb0da;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0.1);
+    width: 30%;
+    height: 30%;
+    float: center;
+    border: solid;
+    border-color: #f104f1;
+}
+.card label{
+    font-weight:bold;
+
+}
+.validity{
+    float: left;
+    width: 30%;
+    text-align: center;
+    margin-left: 7px;
+}
+.firstrow{
+    width:100%;
+    height:30%;
+    float:left;
+  
+
+}
+.secondrow{
+    width:100%;
+    height:30%;
+    float:left;
+
+    
+}
+.thirdrow{
+    width:100%;
+    height:30%;
+    float:left;
+  
+    
+}
+select{
+    width: 100%;
+    height: 50%;
+
+}
+input[type="password"]{
+    height: 50%;
+    width: 100%;
+}
+input[type="text"]{
+    height: 50%;
+}
+label{
+    text-align: left;
+    font-weight: bold;
+}
+input[type="text"]::placeholder,input[type="password"]::placeholder,select::placeholder{
+    text-align: center;
+}
+.amount{
+    width: 20%;
+    height: 20%;
+    position: fixed;
+    top: 225;
+    right: 110;
+    float:right;
+    text-align: center;
+    background-color: #2a2d46;
+    color: white;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: solid;
+    border-color: yellow;
+    transform: perspective(1000px) rotate(-10deg);
+}
+#pay_button{
+    background-color: #2a2d46;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    width: 20%;
+    position: fixed;
+    bottom: 150;
+    left: 550;
+    border-radius: 20;
+    text-align: center;
+    height: 8%;
+    border: solid #2a2d46;
+    border-color: yellow;
+}
+#cust_name{
+    color: blue;
+    font-size: 20;
+    text-align: right;
+}
+sup{
+    color: red;
+}
+#view{
+    background-color: rgb(227, 136, 250);
+    color: black;
+  }

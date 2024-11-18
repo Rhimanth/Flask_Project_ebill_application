@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            button{
+                align-items: center;
+                background-color:#2a2d46;
+                width: 100%;
+                height: 9%;
+                font-size: 20;
+            }
+            body{
+                background-color: #ddd6de;
+                overflow: hidden;
+            }
+            a{
+                color: white;
+                text-decoration:none;
+            }
+            a:active{
+                color: red;
+            }
+            
+            
+        </style>
+
+    </head>
+    <body>
+        <form >
+            <button class="menu" id="home"><a href="{{url_for('adt')}}" target="task">Home</a></button>
+            <button class="menu" id="addcustomer"><a href="{{url_for('addcustomer')}}" target="task">Display All Customers</a></button>
+            <button class="menu" id="updatedetails"><a href="{{url_for('updatedetails')}}" target="task">Update Details</a></button>
+            <button class="menu" id="deletecustomers"><a href="{{url_for('deletecustomers')}}" target="task">Delete Customer</a></button>
+            <button class="menu" id="addbill"><a href="{{url_for('addbill')}}" target="task">Add Bill</a></button>
+            <button class="menu" id="updatebill"><a href="{{url_for('updatebill')}}" id="upadte" target="task">Update Bills</a></button>
+            <button class="menu" id="deletebill"><a href="{{url_for('deletebill')}}" target="task">Delete Bill</a></button>
+            <button class="menu" id="unpaidbills"><a href="{{url_for('unpaidbill')}}" target="task">Unpaid Bills</a></button>
+            <button class="menu" id="compliant"><a href="{{url_for('compliant')}}" target="task">Compliants</a></button>
+            <button class="menu" id="deletcomplients"><a href="{{url_for('deletecompliant')}}" target="task">Delete Compliants</a></button>
+            <button class="menu" id="displayuser"><a href="{{url_for('displaycustomer')}}" target="task">Display Customer</a></button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+    <head>
+    </head>
+    <frameset rows="22%,78%" frameborder="0">
+        <frame src="{{url_for('adh')}}">
+        <frame src="{{url_for('adb')}}">
+    </frameset>
+</html>
+
+<!-- adminlogin.html -->
+
+adminlogin.html
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login Page</title>
+        <link rel="Stylesheet" href="{{url_for('static',filename='adminlogin.css')}}">
+
+        <script>
+            
+            function view(){
+                var u=document.getElementById("username").value;
+                var v=localStorage.getItem("uname");
+                var x=document.getElementById("password").value;
+                var y=localStorage.getItem("p");
+                if(u===v && x===y){
+                    window.location.href="admin.html"
+                }
+                else{
+                    alert("Invalid UserID or password")
+                }
+
+            }
+            
+        </script>
+    </head>
+    <body>
+        <p>Ebill Application</p>
+        <div class="login_box">
+            <h2>Admin Login</h2>
+            <div id="login-form" >
+                <form method="POST" action="{{url_for('adminhome')}}">
+                <div class="form_group">
+                    <label for="username">Username <sup>*</sup></label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form_group">
+                    <label for="password">Password <sup>*</sup></label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit"  >Login</button>
+            </form>
+                <br>
+                <br>
+                <form action="{{url_for('login')}}">
+                <button type="submit"  >Back to user Login</button>
+            </form>
+        </div>
+        {% if failed %}
+        <script>
+            alert("Invalid Username or Password")
+        </script>
+        {% endif %}
+    </body>
+</html>

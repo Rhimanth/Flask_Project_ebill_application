@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Display Complaint</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #0bdea5;
+        }
+        body{
+            background-color: #f5eff6
+            
+        }
+    
+        .container{
+            border: 1px solid#2a2d46;
+            background-color: #ddd6de;
+        }
+        h1{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #2a2d46;
+            text-align: center;
+            padding-top: 20px;
+        }
+        table{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            padding-left: 10%;
+            padding-right: 10%;
+            
+
+        }
+        th{
+            background-color: #2a2d46;
+            color: white;
+        }
+        th,td{
+            height: 30%;
+            width: 5%;
+        }
+    </style>
+</head>
+<body>
+
+<center>
+<h1>DISPLAY CUSTOMER</h1>
+<div class="container">
+    <form action="{{url_for('displaycustomers')}}" method="POST">
+        <input type="text" id="consumer_id" pattern="[0-9]{13}"  maxlength=13 name="consumer_id" placeholder="Consumer ID" required>
+        <input type="submit" value="Display Customer Details">
+    </form>
+</div>
+<div style="padding-top: 40Px;">
+    <table border="1">
+        {% if customer %}
+        <tr>
+            <th>Consumer Id</th>
+            <th>Customer Name </th>
+            <th>Mobile Number</th>
+            <th>Email Adderss</th>
+        </tr>
+        <tr>
+            <td>{{b[0]}}</td>
+            <td>{{b[3]}}</td>
+            <td>{{b[4]}}</td>
+            <td>{{b[5]}}</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>
+<center>
+{% if Nocustomer %}
+<script>
+    alert("No customer found by this consumer id {{cid}}")
+</script>
+{% endif %}
+</body>
+</html>

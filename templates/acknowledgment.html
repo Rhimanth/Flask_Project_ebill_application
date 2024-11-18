@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=""X-UA-Compatible" content="IE=edge">
+        <title>Acknowledgment</title>
+        <link rel="Stylesheet" href="{{url_for('static',filename='acknowledgment.css')}}">
+        <script type="text/javascript" src="{{url_for('static',filename='acknowledgment.js')}}"></script>
+    </head>
+    <body>
+        <center>
+            <div class="ack_container">
+                <br>
+                <br>
+                <p id="successful_login"><b>!!!  Thank you for Registering with Ebill Application !!!</b></p><br>
+                <div id="form_group">
+                    <p>Coustmer Id : <span id="c_id">{{cid}}</span></p>
+                </div>
+                <div id="form_group">
+                    <p>Coustmer Name : <span id="c_name">{{name}}</span></p>
+                </div>
+                <div id="form_group">
+                    <p>Mobile Number : <span id="c_mn">{{mno}}</span></p>
+                </div>
+            </div>
+                <form id="reg_form" action="{{url_for('login')}}">
+                    <button type="submit" value="login" id="login">Back to Login</button>
+                </form>
+            
+        </center>
+    </body>
+</html>

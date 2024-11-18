@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=""X-UA-Compatible" content="IE=edge">
+        <title>
+            Pay Bill
+        </title>
+        <link rel="Stylesheet" type="text/css" href="{{url_for('static',filename='payment.css')}}">
+        <script type="text/javascript">
+             function processPayment() {
+            var paymentMethod = document.getElementById("card_type").value;
+            var amount = document.getElementById("pay_amount").value;
+
+            if (paymentMethod === "Debit Card" || paymentMethod === "Credit Card") {
+                // Redirect to cards.html for debit/credit card payments
+                window.location.href = "{{url_for('cards')}}";
+            } else if (paymentMethod === "UPI") {
+                window.location.href =  "{{url_for('upi')}}";
+            } else if (paymentMethod === "QR Generator") {
+                window.location.href =  "{{url_for('qr')}}";
+            }
+        }
+        </script>
+    </head>
+    <body onload="viewname()">
+        <center>
+            <div id="Ebill">
+                <h1><b>Ebill Application</b></h1>
+            </div>
+            <div id="ebill">
+                <p>Welcome  <span id="cust_name">{{name}}</span></p>
+                <form action="{{url_for('login')}}">
+                    <button type="submit" value="logout" id="logout">Logout</button>
+                </form>
+            </div>
+            <nav>
+                <p>.</p>
+                <div class="navBar" >
+                    <a href="{{url_for('home')}}" >Home</a>
+                </div>
+                <div class="navBar" id="view">
+                    <a href="{{url_for('viewbills')}}">Pay Bill</a>
+                </div>
+                <div class="navBar">
+                    <a href="{{url_for('complaint')}}">Raise Complient</a>
+                </div>
+                <div class="navBar">
+                    <a href="{{url_for('ComplaintStatus')}}">Complient Status</a>
+                </div>
+            </nav>
+            <br>
+            <p>.</p>
+            <p id="bill_details">Bill Payment</p>
+            <center>
+                <div class="payment_container">
+                    <table id="pay_table">
+                        <tr>
+                            <th>Bill Details</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>Bill Amount</td>
+                            <td>&#x20B9<span id="bill_amount">{{amount}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>PG chrages</td>
+                            <td>&#x20B9<span id="pg_charge">50</span></td>
+                        </tr>
+                        <tr>
+                            <td>Total Payable Amount</td>
+                            <td>&#x20B9<span id="total_bill_amount">{{tamount}}</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </center>
+            <br>
+            <center>
+                <div class="payment_container" >
+                    <table id="bill_details">
+                        <tr>
+                            <th>Customer Id</th>
+                            <th>Bill No</th>
+                            <th>Total Amount</th>
+                        </tr>
+                        <tr>
+                            <td><span id="customer_id">{{custid}}</span></td>
+                            <td><span id="bill_no">
+                                {{bills}}
+                            </span></td>
+                            <td>&#x20B9<span id="pay_amount">{{amount}}</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </center>
+            <br>  <br>  <br>
+            <div id="payment_mode">
+                <form method="POST">
+                <p>Mode of Payment
+                    <select id="card_type" onchange="processPayment()" name="ttype">
+                        <option>Choose</option>
+                        <option>Debit Card</option>
+                        <option>Credit Card</option>
+                        <option>UPI</option>
+                        <option>QR Generator</option>
+                    </select>
+                </p></form>
+                <form id="back_to_home" action="{{url_for('home')}}">
+                    <button type="submit" class="pay_buttons">Back to Home</button>
+                </form>
+            </div>
+        </center>
+    </body>
+</html>

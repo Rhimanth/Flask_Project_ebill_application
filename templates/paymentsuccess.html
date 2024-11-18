@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=""X-UA-Compatible" content="IE=edge">
+        <title>
+            Payment Success
+        </title>
+        <link rel="Stylesheet" type="text/css" href="{{url_for('static',filename='paymentsuccess.css')}}">
+        
+    </head>
+    <body onload="viewname()">
+        <center>
+            <div id="Ebill">
+                <h1><b>Ebill Application</b></h1>
+            </div>
+            <div id="ebill">
+                <p>Welcome  <span id="cust_name">{{name}}</span></p>
+                <form action="{{url_for('login')}}">
+                    <button type="submit" value="logout" id="logout">Logout</button>
+                </form>
+            </div>
+            <nav>
+                <p>.</p>
+                <div class="navBar" >
+                    <a href="{{url_for('home')}}" >Home</a>
+                </div>
+                <div class="navBar" id="view">
+                    <a href="{{url_for('viewbills')}}">Pay Bill</a>
+                </div>
+                <div class="navBar">
+                    <a href="{{url_for('complaint')}}">Raise Complient</a>
+                </div>
+                <div class="navBar">
+                    <a href="{{url_for('ComplaintStatus')}}">Complient Status</a>
+                </div>
+            </nav>
+            <br>
+            <p>.</p>
+            <br>
+        </center>
+                <table id="history" boredr="2px">
+                    <tr>
+                        <th >Transaction Number</th>
+                        <th >Receipt Number</th>
+                        <th >Transaction Date</th>
+                        <th >Transaction Type</th>
+                        <th >Payment Type</th>
+                        <th > Payment gateWay</th>
+                        <th >Consumer Name</th>
+                        <th >Bill Number</th>
+                        <th >Transaction Amount</th>
+                        <th >Status</th>
+    
+                        <th id="receipt">Receipt</th>
+                    </tr>
+                    <tr>
+                        <td>EBA<span id="t_no">{{transactionno}}</span></td>
+                        <td ><span id="r_no">{{receiptno}}</id></td>
+                        <td><span id="t_date">{{tdate}}</span></td>
+                        <td><span id="t_type">{{ttype}}</span></td>
+                        <td><span id="p_type">{{ptype}}</span></td>
+                        <td><span id="p_way">{{pgateway}}</span></td>
+                        <td><span id="c_name">{{name}}</span></td>
+                        <td><span id="bill_no">{{bills}}</span></td>
+                        <td> &#x20B9<span id="t_amt">{{tamt}}</span></td>
+                        <td><span id="status">{{status}}</span></td>
+        
+                        <td>
+                            <form id="receipt1" action="{{url_for('receipt')}}">
+                                <button type="submit" id="receipt1" value="view/download">View/Download</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                </table>
+    </body>
+</html>

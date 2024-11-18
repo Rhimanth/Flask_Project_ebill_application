@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=""X-UA-Compatible" content="IE=edge">
+        <title>
+            Complient Status
+        </title>
+        <link rel="Stylesheet" type="text/css" href="{{url_for('static',filename='s_complient.css')}}">
+       <script>
+        window.onload = function() {
+        var h = document.getElementById('home');
+        h.addEventListener('click', function() {
+            window.location.href = "{{ url_for('home') }}";
+        });
+
+        var v = document.getElementById('bill');
+        v.addEventListener('click', function() {
+            window.location.href = "{{ url_for('viewbills') }}";
+        });
+
+        var c = document.getElementById('complaint');
+        c.addEventListener('click', function() {
+            window.location.href = "{{ url_for('complaint') }}";
+        });
+
+        var cs = document.getElementById('view');
+        cs.addEventListener('click', function() {
+            window.location.href = "{{ url_for('ComplaintStatus') }}";
+        });
+    }
+       </script>
+    </head>
+    <body >
+        <center>
+            <div id="Ebill">
+                <h1><b>Ebill Application</b></h1>
+            </div>
+            <div id="ebill">
+                <p>Welcome  <span id="cust_name">{{name}}</span></p>
+                <form action="{{url_for('login')}}">
+                    <button type="submit" value="logout" id="logout">Logout</button>
+                </form>
+            </div>
+            <nav>
+                <p>.</p>
+                <div class="navBar" id="home">
+                    <a href="{{url_for('home')}}" >Home</a>
+                </div>
+                <div class="navBar" id="bill">
+                    <a href="{{url_for('viewbills')}}">Pay Bill</a>
+                </div>
+                <div class="navBar" id="complaint">
+                    <a href="{{url_for('complaint')}}">Raise Complient</a>
+                </div>
+                <div class="navBar" id="view">
+                    <a href="{{url_for('ComplaintStatus')}}">Complient Status</a>
+                </div>
+            </nav>
+            <br>
+            <p>.</p>
+            <h2><b>!!! Check Your Complient Status Here !!!</b></h2>
+            <div id="main_box">
+                <form method="POST" action="{{url_for('ComplaintStatuscheck')}}"
+                <br>
+                <label for="complient_no" >Complient Number</label>
+                <br><br>
+                <input type="text" id="complient_no" name="complient_no">
+                <br>
+                <br>
+                <button type="submit" id="get_status" value="get_status"  >Get Status</button>
+                </form>
+            </div>
+            </div>
+        </center>
+        {% if success %}
+        <script>
+            alert("Complaint Status : {{r}}")
+        </script>
+        {% endif %}
+        {% if nsuccess %}
+        <script>
+            alert("No complaints registed with the given id")
+        </script>
+        {% endif %}
+        {% if error %}
+        <script>
+            alert("Can not find the complaint status right now, please try again.. sorry for the inconvinence...")
+        </script>
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,157 @@
+body{
+    background-color: #ddd6de;
+}
+.navBar{
+    background-color: #2a2d46;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    width: 25%;
+    height: 5%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(13,13,13,0.1);
+}
+#Ebill,#ebill{
+    background-color: #ddd6de;
+    color: #2a2d46;
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 10%;
+    border-radius: 0px;
+}
+
+#logout{
+    width: 5%;
+    padding: 10px;
+    background-color: rgb(238,38,7);
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    position: fixed;
+    right: 200;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+
+  button{
+
+    background-color: #2a2d46;
+    color: white;
+  }
+
+  #view{
+    background-color: rgb(227, 136, 250);
+    color: black;
+  }
+  #img1{
+    position: fixed;
+    top:200px;
+    left: 80px;
+    height: 200px;
+    width: 200px;
+    opacity: 80%;
+  }
+  #tips{
+    float: center;
+    font-size: 18;
+    font-family: 'Times New Roman', Times, serif;
+    text-align:justify;
+    color: #2a2d46;
+    height: 50%;
+    width: 40%;
+    position: fixed;
+    top: 200px;
+    right: 300px;
+
+    
+  }
+  #img2{
+    position: fixed;
+    bottom:20px;
+    right: 30px;
+    height: 250px;
+    width: 250px;
+    opacity: 50%;
+  }
+  #scrolling{
+    position: fixed;
+    left: 320px;
+    bottom: 70px;
+    height: 20%;
+    width: 50%;
+    align-items: left;
+    color: rgb(155, 84, 247);
+    
+  }
+  #marque{
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+    display: inline-block;
+    padding-right: 50px;
+  }
+  #cust_name{
+    color: blue;
+    font-size: 20;
+    text-align: right;
+}
+.star-button{
+  height: 12%;
+  width: 10%;
+  border: 5px  solid rgb(70, 185, 238) ;
+  border-radius: 50%;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.star-button {
+  position: fixed;
+  top:35%;
+  right: 8%;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7c31f5;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  animation: blink-animation 1s infinite alternate;
+}
+
+.star-button::before {
+  position: fixed;
+  top:35%;
+  right: 8%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 20px 0;
+  border-color: #fff transparent transparent transparent;
+}
+
+.star-button::after {
+  position: fixed;
+  top:35%;
+  right: 8%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 0 0 20px;
+  border-color: #fff transparent transparent transparent;
+}
+
+@keyframes blink-animation {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}

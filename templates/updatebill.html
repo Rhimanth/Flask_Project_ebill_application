@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Update Bill</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #0bdea5;
+        }
+        body{
+            background-color: #f5eff6
+            
+        }
+        .container{
+            border: 1px solid#2a2d46;
+            background-color: #ddd6de;
+        }
+        .container input[type="radio"] {
+            width: 10%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        h1{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #2a2d46;
+            text-align: center;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>UPDATE BILL</h1>
+<center>
+    
+<div class="container">
+    <form action="{{url_for('billupdatecheck')}}" method="POST">
+        <input type="text" id="consumer_id" pattern="[0-9]{13}"  maxlength=13 name="consumer_id" placeholder="Consumer ID" required>
+        <input type="text" id="bill_amount" pattern="[0-9]{0-5}" name="bill_amount" placeholder="Bill Amount" required>
+        <input type="text" id="month" name="month" required placeholder="Month">
+        Paid<input type="radio" class="status" id="paid" name="status" value="Paid">
+        UnPaid<input type="radio" class="status" id="unpaid" name="status" value="Unpaid">
+        <input type="submit" value="Update" >
+    </form>
+</div>
+<center>
+    {% if error %}
+    <script>
+        alert("Unable to process the request right now....{{reason}}")
+    </script>
+    {% endif %}
+    {% if success %}
+    <script>
+        alert("Bill updated Successfully")
+    </script>
+    {% endif %}
+    {% if customer %}
+<script>
+    alert("Customer not found by the id {{b}}")
+</script>
+{% endif %}
+</body>
+</html>
